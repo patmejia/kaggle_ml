@@ -38,7 +38,6 @@ graph LR
     id11[(y_train)]
     id12[(y_valid)]
     id13[[miss_val_tech_X_test: </br>- reduction</br> -imputation]]
-    drop1[[1 drop missing target </br>feature rows]]
     drop2[[2 drop non-numeric cols]]
     drop3[[3 my model: </br>- reduction</br> -imputation]]
 
@@ -51,8 +50,7 @@ id2 --> id4
 
     subgraph Train
         subgraph X_full
-        id3 --> drop1
-        drop1 --> id3_1
+        id3 --> |1 drop missing target </br>feature rows| id3_1
         id3_1 --> |select target </br> feature col| id5
         id3_1 --> |drop target </br>feature col| id7
         end
